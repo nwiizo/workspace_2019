@@ -1,0 +1,25 @@
+[server]
+port = ":80"
+web_root = "/var/www/html"
+index = "index.html"
+[[server.vhost]]
+server_name = "www.example.com"
+web_root = "/var/www/example"
+
+[server]
+port = ":443"
+web_root = "/var/www/html"
+index = "index.html"
+ssl_enabled = true
+ssl_key = "/etc/pki/tls/private/localhost.key"
+ssl_cert = "/etc/pki/tls/certs/localhost.crt"
+[[server.vhost]]
+server_name = "www.example.com"
+web_root = "/var/www/example"
+[[server.vhost.proxy]]
+path = "/websocket"
+url = "ws://localhost:9000/websocket"
+
+[php]
+enabled = true
+fpm_sock = "/var/run/php-fpm/php-fpm.sock"

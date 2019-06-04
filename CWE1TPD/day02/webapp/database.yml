@@ -1,0 +1,5 @@
+database: filmsdb
+host: localhost
+username: root
+password: gmo_rubykaigi2019_day02
+encoding: utf8

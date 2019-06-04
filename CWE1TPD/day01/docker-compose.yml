@@ -1,0 +1,38 @@
+version: '2'
+services:
+  rails:
+    build: app/.
+    image: my/rails
+    container_name: 'rails'
+    tty: true
+    ports:
+      - "80:3000"
+    environment:
+      APP_DATABASE: 'example'
+      APP_DATABASE_USER: 'app'
+      APP_DATABASE_PASSWORD: 'development'
+    volumes:
+      - app-data:/usr/src/app
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - mysql
+
+  mysql:
+    build: db/.
+    image: my/mysql
+    container_name: 'mysql'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'mysql'
+      MYSQL_DATABASE: 'example'
+      MYSQL_USER: 'app'
+      MYSQL_PASSWORD: 'development'
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  app-data:
+     driver: local
+  mysql-data:
+    driver: local

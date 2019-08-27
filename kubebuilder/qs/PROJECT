@@ -1,0 +1,3 @@
+version: "2"
+domain: my.domain
+repo: _/root/git/workspace_2019/kubebuilder

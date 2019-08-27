@@ -1,9 +1,0 @@
-<table>
-<% @title_search.each do |titles| %>
-  <tr>
-    <td><a href="./title_id/<%= titles.values[0] %>"><img src="./image/<%= titles.values[0] %>.png"></a></td>
-    <td><p> <a href="./title_id/<%= titles.values[0] %>"><%= titles.values[2] %></a> </p></td>
-    <td><p> <%= titles.values[3] %> </p></td>
-  </tr>
-<% end %>
-<table>

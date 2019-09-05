@@ -1,0 +1,3 @@
+version: "2"
+domain: tutorial.kubebuilder.io
+repo: _/root/workspace_2019/kubebuilder/cronjob
